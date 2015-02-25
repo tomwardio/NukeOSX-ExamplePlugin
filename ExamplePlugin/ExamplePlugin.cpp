@@ -6,9 +6,6 @@
 
 using namespace DD::Image;
 
-static const char* const HELP =
-"Write the description of your plugin here.\n\n";
-
 class ExamplePlugin : public Iop
 {
 public:
@@ -22,7 +19,6 @@ public:
     // Set the min and max inputs, you can change this as your requirements
     int minimum_inputs() const { return 1; }
     int maximum_inputs() const { return 1; }
-    //! Constructor. Initialize user controls to their default values.
     
     virtual void knobs(Knob_Callback);
 
@@ -40,8 +36,9 @@ public:
 private:
     
     //! Information to the plug-in manager of DDNewImage/NUKE.
-    static const Iop::Description description;
-    static const char* CLASS;
+    static const Iop::Description   DESCRIPTION;
+    static const char*              CLASS;
+    static const char*              HELP;
 };
 
 
@@ -62,12 +59,13 @@ static Iop* ExamplePluginCreate(Node* node)
  how to create one, and the menu item to show the user. The menu item may be
  0 if you do not want the operator to be visible.
  */
-const Iop::Description ExamplePlugin::description ( CLASS, "Examples/ExamplePlugin",
+const Iop::Description ExamplePlugin::DESCRIPTION ( CLASS, "Examples/ExamplePlugin",
                                                    ExamplePluginCreate );
 
 
 // No matter what the name of the class is , the below is the actual name of the plugin inside Nuke.
 const char* ExamplePlugin::CLASS = "ExamplePlugin";
+const char* ExamplePlugin::HELP = "Write the description of your plugin here.\n";
 
 /*Essentially, the _validate function tells NUKE about the size and format of the generated images,
 	including the image channels we’re going to access and create. In this example, copy_info()
