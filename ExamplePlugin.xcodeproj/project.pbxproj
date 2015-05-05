@@ -193,6 +193,10 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				NUKE_APPLICATION_FOLDER = /Applications/Nuke9.0v4/Nuke9.0v4.app/Contents/MacOS;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-Wno-deprecated-register",
+				);
 				OTHER_LDFLAGS = (
 					"-lGLEW",
 					"-lDDImage",
@@ -238,6 +242,10 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				NUKE_APPLICATION_FOLDER = /Applications/Nuke9.0v4/Nuke9.0v4.app/Contents/MacOS;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-Wno-deprecated-register",
+				);
 				OTHER_LDFLAGS = (
 					"-lGLEW",
 					"-lDDImage",
